@@ -59,12 +59,11 @@ Dockerfile (good starting point [here](https://www.r-bloggers.com/r-3-3-0-is-ano
 demo:
 FROM rocker/shiny:latest
 
-MAINTAINER John Doe
-"j.doe@gmail.com"
+MAINTAINER John Doe "j.doe@gmail.com"
 
-ADD . /project
+ADD . /srv
 
-RUN R -e "install.packages(c("shinydashboard", "leaflet", "dplyr", "ggpmap", "tidyverse"))"
+RUN R -e "install.packages(c('flexdashboard', 'leaflet', 'dplyr', 'ggpmap', 'tidyverse'))"
 
 EXPOSE 3838
 
@@ -72,16 +71,18 @@ CMD ["/usr/bin/shiny-server.sh"]
 
 ## Other options
 
+* Kubernetes
 * Watson ML
 * Node.js
 * Secure toolchain? (available outside US?)
 
+## Possible issues
+
+* Low memory on Bluemix machines
+* Long deployment times (need separate image)
+
 ## Links
 
-[A beginner's guide to the Dockerfile](https://blog.codeship.com/a-beginners-guide-to-the-dockerfile/)
-[Create and use a simple container toolchain](https://www.ibm.com/devops/method/tutorials/tutorial_toolchain_container?task=3)
-
-
-
-
-0647320639
+* [A beginner's guide to the Dockerfile](https://blog.codeship.com/a-beginners-guide-to-the-dockerfile/)
+* [Create and use a simple container toolchain](https://www.ibm.com/devops/method/tutorials/tutorial_toolchain_container?task=3)
+* [Managing Bluemix containers from the commandline](https://console.bluemix.net/docs/containers/container_cli_cfic_install.html)

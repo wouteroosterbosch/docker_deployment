@@ -4,7 +4,7 @@ MAINTAINER John Doe "j.doe@gmail.com"
 
 ADD . /project
 
-RUN R -e "install.packages(c('shinydashboard', 'leaflet', 'dplyr', 'ggpmap', 'tidyverse'))"
+RUN R -e "install.packages(c('shinydashboard', 'flexdashboard', 'leaflet', 'dplyr', 'ggpmap', 'tidyverse'))"
 
 EXPOSE 3838
 
