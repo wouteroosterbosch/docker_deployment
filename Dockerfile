@@ -1,7 +1,6 @@
 FROM rocker/shiny:latest
 
-MAINTAINER John Doe
-"j.doe@gmail.com"
+MAINTAINER John Doe "j.doe@gmail.com"
 
 ADD . /project
 
