@@ -69,6 +69,10 @@ EXPOSE 3838
 
 CMD ["/usr/bin/shiny-server.sh"]
 
+bx cr quota
+bx cr images
+bx cr pricing
+
 ## Other options
 
 * Kubernetes
