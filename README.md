@@ -43,20 +43,22 @@ $ sudo R -e "install.packages(c("shinydashboard", "leaflet", "dplyr", "ggpmap", 
 Open questions:
 * What is the best way to integrate with (Enterprise) Git?
 
-docker commit
-More info [here](https://docs.docker.com/engine/reference/commandline/commit/)
-
-Now you can put this dockerfile anywhere
-
+A critical point of these Docker applications is that, once you shut down the container, your applied changes do not persist. This would mean having to re-install the extra packages, and all the custom files you included during the first setup. Luckily, there is a way to make all of these alterations a permanent part of a new Docker image: `docker commit`. For more details, see [here](https://docs.docker.com/engine/reference/commandline/commit/). After this is done, you can move this dockerfile anywhere, share it with colleagues, clients, etc.
 
 ## Bluemix static
 
+One option
+
+bx cr quota
+bx cr images
+bx cr pricing
 
 ## Bluemix Toolchain
 
 Dockerfile (good starting point [here](https://www.r-bloggers.com/r-3-3-0-is-another-motivation-for-docker/))
 
 demo:
+`
 FROM rocker/shiny:latest
 
 MAINTAINER John Doe "j.doe@gmail.com"
@@ -68,10 +70,8 @@ RUN R -e "install.packages(c('flexdashboard', 'leaflet', 'dplyr', 'ggpmap', 'tid
 EXPOSE 3838
 
 CMD ["/usr/bin/shiny-server.sh"]
+`
 
-bx cr quota
-bx cr images
-bx cr pricing
 
 ## Other options
 
